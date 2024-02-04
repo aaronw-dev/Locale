@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/style.css" rel="stylesheet" />
+    <title>Locale</title>
+</head>
+
+<body>
+    <nav class="menu">
+        <div class="nav-name" onclick="location.href=location.origin">
+            <img src="../static/images/logo-64.png"> Locale
+        </div>
+        <div class="nav-buttons">
+            <div class="nav-button" onclick="location.href=location.origin + '/account'">
+                Login
+            </div>
+            <div class="nav-button signup-button" onclick="location.href=location.origin + '/account?signup=true'">
+                Signup
+            </div>
+        </div>
+    </nav>
+
+    <div class="welcome-section">
+        <div class="tagline">Built for citizens, by citizens.</div>
+        <div class="elevator-pitch">A free-forever platform to give your neighbours a
+            heads-up when they need one most.</div>
+        <div class="signup-container">
+            <input type="email" id="signup-input" class="signup-input" placeholder="Enter your email" size="40">
+            <button class="testbutton"
+                onclick="location.href = location.origin + '/account?signup=true&email=' + document.getElementById('signup-input').value">Get
+                Started</button>
+        </div>
+    </div>
+</body>
+
+</html>

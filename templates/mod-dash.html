@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Locale - Moderator Dashboard</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body class="dashboard-body">
+    <div class="dashboard-wrapper">
+        <nav class="dashboard-menu">
+            <div class="nav-name" onclick="location.href=location.origin">
+                <img src="../static/images/logo-64.png"> Locale
+            </div>
+            <div class="dashboard-title">Moderator Dashboard</div>
+            <!--<div class="help-button"><img src="../static/images/help.svg"></div>-->
+        </nav>
+        <div id='dashboard-map'></div>
+    </div>
+    <div class="currentevent-popup closed" id="currentevent-popup">
+        <div id="currentevent-title" class="currentevent-title"></div>
+        <div id="currentevent-location" class="currentevent-location"></div>
+        <img id="currentevent-image" class="currentevent-image" src="">
+        <div class="currentevent-details">
+            <div class="currentevent-label">
+                Status:
+                <span class="currentevent-value" id="currentevent-status"></span>
+            </div>
+            <div class="currentevent-label">
+                Watch out for:
+                <span class="currentevent-value" id="currentevent-watchout"></span>
+            </div>
+
+            <div class="currentevent-label">
+                Risk:
+            </div>
+            <div class="currentevent-risk">
+                <img id="currentevent-risk" class="risk-indicator" src="../static/images/safety-icons/unsafe.png">
+            </div>
+        </div>
+    </div>
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    <form enctype="multipart/form-data" action="../report" method="post" class="issue-report closed" id="report-box"
+        target="dummyframe" onsubmit="issueSubmit(event)" novalidate>
+        <div class="issue-header">Report an issue</div>
+        <div class="issue-label">What should we watch out for?</div>
+        <input type="text" name="title" placeholder="create a title for your report" required>
+        <textarea name="description" placeholder="describe the issue in a few words" rows="2" required></textarea>
+        <div class="issue-label">How would you rate this issue?</div>
+        <input type="text" style="display: none" name="location" id="issue-location">
+        <!-- <div class="issue-risk">
+            <img class="issue-risk-indicator" src="../static/images/unsafe.png">
+        </div>-->
+        <input name="risk" class="issue-risk" type="range" min="0" max="100" step="0.1" oninput="changeRisk(event)">
+        <div class="issue-label">Upload an image:<input class="issue-button"
+                onclick="document.getElementById('issue-image').click()" type="button" value="Upload"><input
+                class="issue-button submit-issue" type="submit" value="Submit report"></div>
+        <input type="file" name="image" id="issue-image" accept=".png, .jpg" style="display: none" required>
+
+
+    </form>
+    <script src="../static/main.js">
+    </script>
+    <script src="../static/mod.js">
+    </script>
+</body>
+
+</html>
