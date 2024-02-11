@@ -162,6 +162,13 @@ def main_app():
     else:
         return redirect("../account")
 
+# REMOVE THIS BEFORE PUSH!!!
+
+
+@app.route("/mod-dash")
+def moddash():
+    return render_template("mod-dash.html")
+
 
 @app.route("/signup", methods=["POST"])
 def signup():
