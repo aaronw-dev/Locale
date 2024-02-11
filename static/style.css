@@ -566,6 +566,13 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 50%;
     cursor: pointer;
     padding: 0;
+    transition: filter 600ms;
+    z-index: initial;
+}
+
+.current-marker {
+    filter: drop-shadow(1px 24px 13px #000000);
+    z-index: 100;
 }
 
 .submit-issue {
